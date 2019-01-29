@@ -1,0 +1,66 @@
+body{
+	margin: 0 auto;
+	padding: 150px;
+	width: 25%;
+}
+
+form{
+	overflow: hidden;
+}
+
+h2{
+	text-align: center;
+}
+
+input[type="text"]{
+	height: 50px;
+	width: 100%;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	font-size: 14px;
+	display: block;
+	border: 1px solid #808080;
+  	border-radius: 4px;
+}
+
+input[type="password"]{
+	height: 50px;
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 14px;
+	display: block;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border: 1px solid #808080;
+  	border-radius: 4px;
+}
+
+input[type="submit"]{
+	padding: 15px 40px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background: #5cb85c;
+	color: white;
+	float: left;
+	border-radius:4px;
+}
+
+input[type="submit"]:hover{
+	opacity: 0.8;
+}
+
+a{
+	color: black;
+	display: block;
+}
+
+.err_msg{
+	color: #FF0000;
+}
+
+.contact-form{
+	width: 100%;
+    padding: 50px;
+    background-color: #F5F5F5;
+}
