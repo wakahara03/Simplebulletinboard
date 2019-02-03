@@ -18,23 +18,18 @@ if (!empty($_POST)) {
 	}
 	if (empty($err_msg)) {
 		
-		$email = $_POST['email'];
-		$pass = $_POST['pass'];
-
-		if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $email)) {
+		if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
 			$err_msg['email'] = ERR02;
 		}
 
 		if (empty($err_msg)) {
-			if (!preg_match("/^[a-zA-Z0-9]+$/", $pass)) {
+			if (!preg_match("/^[a-zA-Z0-9]+$/", $_POST['pass'])) {
 				$err_msg['pass'] = ERR03;
-			}elseif (mb_strlen($pass) < 6) {
+			}elseif (mb_strlen($_POST['pass']) < 6) {
 				$err_msg['pass'] = ERR04;
 			}
 
 			if(empty($err_msg)){
-			  $email = $_POST['email'];
-			  $pass = $_POST['pass'];
 			 
 			  $dsn = 'mysql:dbname=portforio01;host=localhost;charset=utf8';
 			  $user = 'root';
@@ -48,7 +43,7 @@ if (!empty($_POST)) {
 			 
 			  $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND pass = :pass');
 			 
-			  $stmt->execute(array(':email' => $email, ':pass' => $pass));
+			  $stmt->execute(array(':email' => $_POST['email'], ':pass' => $_POST['pass']));
 			 
 			  $result = 0;
 			 
