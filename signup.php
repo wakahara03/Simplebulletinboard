@@ -73,7 +73,7 @@ if (!empty($_POST)) {
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>ユーザー登録</title>
+	<title>新規登録</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
 	<div class="contact-form">
