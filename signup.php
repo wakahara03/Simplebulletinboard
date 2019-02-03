@@ -28,25 +28,20 @@ if (!empty($_POST)) {
 	
 	if (empty($err_msg)) {
 		
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$pass = $_POST['pass'];
-		$pass_re = $_POST['pass_retype'];
-
-		if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $email)) {
+		if (!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
 			$err_msg['email'] = ERR02;
 		}
 
-		if ($pass !== $pass_re) {
+		if ($_POST['pass'] !== $_POST['pass_retype']) {
 			$err_msg['pass'] = ERR03;
 		}
 
 		if (empty($err_msg)) {
 			
-			if (!preg_match("/^[a-zA-Z0-9]+$/", $pass)) {
+			if (!preg_match("/^[a-zA-Z0-9]+$/", $_POST['pass'])) {
 				$err_msg['pass'] = ERR04;
 
-			}elseif (mb_strlen($pass) < 6) {
+			}elseif (mb_strlen($_POST['pass']) < 6) {
 				$err_msg['pass'] = ERR05;
 			}
 
@@ -64,7 +59,7 @@ if (!empty($_POST)) {
 		 
 		        $stmt = $dbh->prepare('INSERT INTO users (name,email,pass,login_time) VALUES (:name,:email,:pass,:login_time)');
 		 
-		        $stmt->execute(array(':name' => $name, ':email' => $email, ':pass' => $pass, ':login_time' => date('Y-m-d H:i:s')));
+		        $stmt->execute(array(':name' => $_POST['name'], ':email' => $_POST['email'], ':pass' => $_POST['pass'], ':login_time' => date('Y-m-d H:i:s')));
 		 
 		        header("Location:login.php"); 
 		    }
