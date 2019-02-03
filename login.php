@@ -76,10 +76,10 @@ if (!empty($_POST)) {
 		<h2>ログイン</h2>
 		<form action="" method="post">
 			<span class="err_msg"><?php if(!empty($err_msg['email'])) echo $err_msg['email'];?></span>
-			<input type="text" name="email" placeholder="メールアドレス" value="<?php if (!empty($_POST['email'])) echo($_POST['email']);?>">
+			<input type="text" name="email" placeholder="メールアドレス" value="<?php if (!empty($_POST['email'])) echo(htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'));?>">
 
 			<span class="err_msg"><?php if(!empty($err_msg['pass'])) echo $err_msg['pass'];?></span>
-			<input type="password" name="pass" placeholder="パスワード" value="<?php if (!empty($_POST['pass'])) echo($_POST['pass']);?>">
+			<input type="password" name="pass" placeholder="パスワード" value="<?php if (!empty($_POST['pass'])) echo(htmlspecialchars($_POST['pass'], ENT_QUOTES, 'UTF-8'));?>">
 			
 			<input type="submit" value="ログイン">
 		</form>
