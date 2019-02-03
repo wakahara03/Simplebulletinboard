@@ -33,11 +33,8 @@
         <p>画像をアップロードする</p>
          
         <form method="post" enctype="multipart/form-data">
-         
           <input type="file" name="img">
-         
           <input type="submit" value="画像をアップロード">
-         
         </form>
         
         <?php if (!empty($img_path)) { ?>
