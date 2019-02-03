@@ -73,23 +73,23 @@ if (!empty($_POST)) {
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>新規登録</title>
+	<title>ユーザー登録</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
 	<div class="contact-form">
 		<h2>新規登録</h2>
 		<form action="" method="post">
 			<span class="err_msg"><?php if(!empty($err_msg['name'])) echo $err_msg['name'];?></span>
-			<input type="text" name="name" placeholder="名前" value="<?php if (!empty($_POST['name'])) echo($_POST['name']);?>">
+			<input type="text" name="name" placeholder="名前" value="<?php if (!empty($_POST['name'])) echo(htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8'));?>">
 
 			<span class="err_msg"><?php if(!empty($err_msg['email'])) echo $err_msg['email'];?></span>
-			<input type="text" name="email" placeholder="メールアドレス" value="<?php if (!empty($_POST['email'])) echo($_POST['email']);?>">
+			<input type="text" name="email" placeholder="メールアドレス" value="<?php if (!empty($_POST['email'])) echo(htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'));?>">
 
 			<span class="err_msg"><?php if(!empty($err_msg['pass'])) echo $err_msg['pass'];?></span>
-			<input type="password" name="pass" placeholder="パスワード" value="<?php if (!empty($_POST['pass'])) echo($_POST['pass']);?>">
+			<input type="password" name="pass" placeholder="パスワード" value="<?php if (!empty($_POST['pass'])) echo(htmlspecialchars($_POST['pass'], ENT_QUOTES, 'UTF-8'));?>">
 
 			<span class="err_msg"><?php if(!empty($err_msg['pass_retype'])) echo $err_msg['pass_retype'];?></span>
-			<input type="password" name="pass_retype" placeholder="パスワード（再入力）" value="<?php if (!empty($_POST['pass_retype'])) echo($_POST['pass_retype']);?>">
+			<input type="password" name="pass_retype" placeholder="パスワード（再入力）" value="<?php if (!empty($_POST['pass_retype'])) echo(htmlspecialchars($_POST['pass_retype'], ENT_QUOTES, 'UTF-8'));?>">
 
 			<input type="submit" value="新規会員登録">
 		</form>
